@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class AnimatorManager : MonoBehaviour
 {
-    private Animator animator;
-    private int horizontal;
-    private int vertical;
+    Animator animator;
+    int horizontal;
+    int vertical;
 
     private void Awake()
     {
