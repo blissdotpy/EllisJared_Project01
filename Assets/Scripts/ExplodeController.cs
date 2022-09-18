@@ -7,21 +7,27 @@ public class ExplodeController : MonoBehaviour
 {
     public GameObject enemyObject;
 
-    public float objSize = 0.2f;
+    private float objSize;
 
     public int objInRow = 5;
 
     private float objPivotDistance;
 
     private Vector3 objPivot;
+    
+    [Header("Explode Settings")]
 
     public float explosionForce = 50f;
 
     public float explosionRadius = 4f;
 
     public float explosionUpward = 0.4f;
-    
-    
+
+    private void Awake()
+    {
+        objSize = transform.localScale.x / objInRow;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
