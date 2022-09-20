@@ -9,6 +9,7 @@ public class InputManager : MonoBehaviour
     PlayerControls playerControls;
     PlayerLocomotion playerLocomotion;
     AnimatorManager animatorManager;
+    ShootingController shootingController;
 
     public Vector2 movementInput;
     public float moveAmount;
@@ -17,11 +18,13 @@ public class InputManager : MonoBehaviour
 
     public bool shift_Input;
     public bool ctrl_Input;
+    public bool space_Input;
 
     private void Awake()
     {
         animatorManager = GetComponent<AnimatorManager>();
         playerLocomotion = GetComponent<PlayerLocomotion>();
+        shootingController = GetComponent<ShootingController>();
     }
 
     private void OnEnable()
@@ -37,6 +40,9 @@ public class InputManager : MonoBehaviour
             
             playerControls.PlayerActions.Ctrl.performed += i => ctrl_Input = true;
             playerControls.PlayerActions.Ctrl.canceled += i => ctrl_Input = false;
+
+            playerControls.PlayerActions.Shoot.performed += i => space_Input = true;
+            playerControls.PlayerActions.Shoot.canceled += i => space_Input = false;
         }
         
         playerControls.Enable();
@@ -52,8 +58,17 @@ public class InputManager : MonoBehaviour
         HandleMovementInput();
         HandleSprintingInput();
         HandleWalkingInput();
+        HandleShootInput();
         // HandleJumpInput
-        // HandleActionInput
+    }
+
+    private void HandleShootInput()
+    {
+        if (space_Input)
+        {
+            // Shoot
+            shootingController.Shoot();
+        }
     }
 
     private void HandleMovementInput()
