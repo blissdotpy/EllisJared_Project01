@@ -6,26 +6,12 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
+    [SerializeField]
     public float bulletSpeed;
-    public float maxDistance;
-    
-    private Rigidbody bulletRB;
-
-    private void Start()
-    {
-        bulletRB = GetComponent<Rigidbody>();
-    }
 
     // Update is called once per frame
     void Update()
     {
-        bulletRB.AddForce(transform.forward * bulletSpeed);
-        
-        maxDistance += 1 * Time.deltaTime;
-
-        if (maxDistance >= 5)
-        {
-            Destroy(gameObject);
-        }
+        transform.Translate(Vector3.forward * bulletSpeed * Time.deltaTime);
     }
 }
