@@ -1345,6 +1345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 8
   impactSound: {fileID: 8300000, guid: 7f2b4e22d8635b14b80ddd302e6024e5, type: 3}
+  impactEffect: {fileID: 71029551319002200, guid: 330e4b5b54905e240b49b15fda255873, type: 3}
 --- !u!65 &6806834912249217360
 BoxCollider:
   m_ObjectHideFlags: 0
