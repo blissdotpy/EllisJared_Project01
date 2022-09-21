@@ -1,0 +1,54 @@
+{
+    "name": "GameControls",
+    "maps": [
+        {
+            "name": "GameWideInputs",
+            "id": "5d85718b-b26e-4b72-8b42-d19090ea5373",
+            "actions": [
+                {
+                    "name": "Restart",
+                    "type": "Button",
+                    "id": "35d29725-dc62-40b6-bd7d-d5e25b70f4fa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Exit",
+                    "type": "Button",
+                    "id": "1b57b851-5b01-47d8-9ea7-ef1e409c10ba",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5aa5195d-6478-44d7-b3a5-8d1b5745f0a9",
+                    "path": "<Keyboard>/backspace",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Restart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4572bac2-b4fe-4f0b-b1fd-5dc5c78a5767",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
