@@ -9,6 +9,8 @@ public class BulletController : MonoBehaviour
     [SerializeField]
     public float bulletSpeed;
 
+    [SerializeField] AudioClip impactSound;
+
     // Update is called once per frame
     void Update()
     {
@@ -20,6 +22,10 @@ public class BulletController : MonoBehaviour
         Debug.Log($"{other.name}");
         IDamageable damageable = other.GetComponent<IDamageable>();
         if (damageable == null || other.GetComponent<PlayerManager>() != null) return;
+        if (impactSound != null)
+        {
+            AudioHelper.PlayerClip2D(impactSound, 0.1f);
+        }
         damageable.TakeDamage(10);
         Destroy(gameObject);
     }

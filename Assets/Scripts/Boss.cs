@@ -25,7 +25,7 @@ public class Boss : Enemy, IDamageable
     public void Kill()
     {
         explodeController.Explode();
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
         Debug.Log($"{name} has died.");
     }
 }

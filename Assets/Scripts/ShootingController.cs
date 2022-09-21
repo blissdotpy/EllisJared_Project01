@@ -12,8 +12,14 @@ public class ShootingController : MonoBehaviour
 
     public Transform firePoint;
 
+    [SerializeField] AudioClip shootSound;
+
     public void Shoot()
     {
+        if (shootSound)
+        {
+            AudioHelper.PlayerClip2D(shootSound, 0.1f);
+        }
         if (lastTimeShot + firingSpeed <= Time.time)
         {
             lastTimeShot = Time.time;
