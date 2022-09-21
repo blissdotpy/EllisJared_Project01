@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2968952665168491831}
   - component: {fileID: 2968952665168491824}
   - component: {fileID: 2968952665168491825}
-  - component: {fileID: 2968952665168491826}
   m_Layer: 0
   m_Name: Art
   m_TagString: Untagged
@@ -1298,20 +1297,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2968952665168491852}
   m_Mesh: {fileID: 0}
---- !u!64 &2968952665168491826
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2968952665168491852}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &2968952666447118176
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,6 +1307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2968952666447118182}
   - component: {fileID: 2968952666447118183}
+  - component: {fileID: 6806834912249217360}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -1358,3 +1344,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 8
+--- !u!65 &6806834912249217360
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2968952666447118176}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.13843769, y: 0.113774985, z: 0.25990605}
+  m_Center: {x: 0, y: 0, z: 0}

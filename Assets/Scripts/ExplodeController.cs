@@ -38,14 +38,6 @@ public class ExplodeController : MonoBehaviour
     // Update is called once per frame
     void Update() { }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.name == "Ground")
-        {
-            Explode();
-        }
-    }
-
     public void Explode()
     {
         gameObject.SetActive(false);

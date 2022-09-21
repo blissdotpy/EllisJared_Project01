@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour, IDamageable
 {
     private InputManager inputManager;
     private PlayerLocomotion playerLocomotion;
+
+    [SerializeField] public int PlayerHealth = 100;
 
     private void Awake()
     {
@@ -22,5 +24,25 @@ public class PlayerManager : MonoBehaviour
     private void FixedUpdate()
     {
         playerLocomotion.HandleAllMovement();
+    }
+
+    public int Health
+    {
+        get => PlayerHealth;
+        set => PlayerHealth = value;
+    }
+
+    public void TakeDamage(int damageAmount)
+    {
+        if (PlayerHealth <= 0)
+        {
+            Kill();
+        }
+        PlayerHealth -= damageAmount;
+    }
+
+    public void Kill()
+    {
+        gameObject.SetActive(false);
     }
 }

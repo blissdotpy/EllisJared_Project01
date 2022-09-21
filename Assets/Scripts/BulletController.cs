@@ -14,4 +14,13 @@ public class BulletController : MonoBehaviour
     {
         transform.Translate(Vector3.forward * bulletSpeed * Time.deltaTime);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log($"{other.name}");
+        IDamageable damageable = other.GetComponent<IDamageable>();
+        if (damageable == null || other.GetComponent<PlayerManager>() != null) return;
+        damageable.TakeDamage(10);
+        Destroy(gameObject);
+    }
 }
