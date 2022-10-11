@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-#if UNITY_EDITOR
 public class InputManager : MonoBehaviour
 {
     PlayerControls playerControls;
@@ -105,4 +104,3 @@ public class InputManager : MonoBehaviour
         }
     }
 }
-#endif

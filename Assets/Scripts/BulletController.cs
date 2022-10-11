@@ -34,6 +34,7 @@ public class BulletController : MonoBehaviour
             impactEffect.Play();
         }
         damageable.TakeDamage(10);
+        //Destroy(impactEffect);
         Destroy(gameObject);
     }
 }

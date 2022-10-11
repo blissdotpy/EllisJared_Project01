@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour, IDamageable
 {
-    private InputManager inputManager;
-    private PlayerLocomotion playerLocomotion;
+    InputManager inputManager;
+    PlayerLocomotion playerLocomotion;
 
     [SerializeField] public int PlayerHealth = 100;
 
