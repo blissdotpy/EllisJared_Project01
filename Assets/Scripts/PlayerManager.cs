@@ -1,12 +1,16 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour, IDamageable
 {
     InputManager inputManager;
     PlayerLocomotion playerLocomotion;
+    public CameraShake cameraShake;
+    public PlayerManager playerManager;
+
+    public UIPlayerHealthbar playerHealthbar;
+    public string playerName;
+    public Player player;
 
     [SerializeField] public int PlayerHealth = 100;
 
@@ -14,6 +18,15 @@ public class PlayerManager : MonoBehaviour, IDamageable
     {
         inputManager = GetComponent<InputManager>();
         playerLocomotion = GetComponent<PlayerLocomotion>();
+        playerHealthbar = FindObjectOfType<UIPlayerHealthbar>();
+        player = GetComponent<Player>();
+    }
+
+    private void Start()
+    {
+        playerHealthbar.SetUIHealthBarToActive();
+        playerHealthbar.SetBossName(playerName);
+        playerHealthbar.SetBossMaxHealth(player.PlayerHealth);
     }
 
     private void Update()
@@ -34,15 +47,35 @@ public class PlayerManager : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damageAmount)
     {
-        if (PlayerHealth <= 0)
+        Debug.Log($"{name} took {damageAmount} damage.");
+        Health -= damageAmount;
+        //StartCoroutine(cameraShake.Shake(.15f, .14f));
+
+        playerHealthbar.SetBossCurrentHealth(Health);
+        Debug.Log($"New Health: {Health}");
+        if (Health <= 0)
         {
             Kill();
         }
-        PlayerHealth -= damageAmount;
     }
 
-    public void Kill()
+    private void Kill()
     {
         gameObject.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        player.EnemyDamage += OnEnemyDamage;
+    }
+
+    private void OnDisable()
+    {
+        player.EnemyDamage -= OnEnemyDamage;
+    }
+
+    private void OnEnemyDamage(int damage)
+    {
+        TakeDamage(damage);
     }
 }

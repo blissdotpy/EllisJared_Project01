@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.AssetImporters;
 using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour, IDamageable
@@ -35,9 +36,18 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         }
     }
 
-    public virtual void Kill()
+    protected virtual void Kill()
     {
         Destroy(gameObject);
         Debug.Log($"{name} has died.");
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Player player = collision.transform.GetComponent<Player>();
+        if (player != null)
+        {
+            player.OnEnemyDamage();
+        }
     }
 }

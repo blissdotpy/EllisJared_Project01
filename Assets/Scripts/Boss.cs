@@ -13,7 +13,7 @@ public class Boss : Enemy
         enemyBossManager = GetComponent<EnemyBossManager>();
     }
 
-    public override void Kill()
+    protected override void Kill()
     {
         explodeController.Explode();
         StartCoroutine(cameraShake.Shake(.35f, .34f));

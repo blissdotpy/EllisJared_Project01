@@ -12,7 +12,7 @@ public class MiniBoss : Enemy
         miniBossManager = GetComponent<EnemyMiniBossManager>();
     }
 
-    public override void Kill()
+    protected override void Kill()
     {
         miniBossManager.miniBossHealthbar.SetHealthBarToInactive();
         Debug.Log($"{name} has died.");
