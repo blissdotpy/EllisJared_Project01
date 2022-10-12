@@ -6,6 +6,7 @@ using UnityEngine;
 public class ExplodeController : MonoBehaviour
 {
     public GameObject enemyObject;
+    public CameraShake cameraShake;
 
     private float objSize;
 
@@ -60,6 +61,7 @@ public class ExplodeController : MonoBehaviour
             if (rb != null)
             {
                 rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, explosionUpward);
+                
             }
         }
     }

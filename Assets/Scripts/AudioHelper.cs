@@ -11,6 +11,7 @@ public static class AudioHelper
         AudioSource audioSource = audioObject.AddComponent<AudioSource>();
         audioSource.clip = clip;
         audioSource.volume = volume;
+        audioSource.pitch = Random.Range(0.8f, 1.2f);
         audioSource.Play();
         Object.Destroy(audioObject, clip.length);
         return audioSource;

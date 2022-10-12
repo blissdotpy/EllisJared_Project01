@@ -16,6 +16,8 @@ public class Boss : Enemy
     public override void Kill()
     {
         explodeController.Explode();
+        StartCoroutine(cameraShake.Shake(.35f, .34f));
+
         enemyBossManager.bossHealthBar.SetHealthBarToInactive();
         Debug.Log($"{name} has died.");
     }
@@ -24,6 +26,8 @@ public class Boss : Enemy
     {
         Debug.Log($"{name} took {damageAmount} damage.");
         Health -= damageAmount;
+        StartCoroutine(cameraShake.Shake(.15f, .14f));
+
         enemyBossManager.bossHealthBar.SetBossCurrentHealth(Health);
         Debug.Log($"New Health: {Health}");
         if (Health <= 0)

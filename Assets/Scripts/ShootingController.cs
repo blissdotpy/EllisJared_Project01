@@ -7,7 +7,7 @@ public class ShootingController : MonoBehaviour
     
     public float bulletSpeed;
     private float lastTimeShot = 0;
-    private float firingSpeed = 0.2f;
+    private float firingSpeed = 0.4f;
 
     public Transform firePoint;
 

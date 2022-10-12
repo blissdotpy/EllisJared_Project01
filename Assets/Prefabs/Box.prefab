@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 3892304985685283557}
   - component: {fileID: 7919982556427224903}
   - component: {fileID: -8778168235642611768}
+  - component: {fileID: 8442464529095951155}
+  - component: {fileID: -7633790769560953401}
   m_Layer: 0
   m_Name: Box
   m_TagString: Untagged
@@ -397,7 +399,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11de92c0df7f5054a8b4463545464f38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
   agent: {fileID: 7919982556427224903}
   range: 10
   centrePoint: {fileID: 7571823456715840867}
+--- !u!114 &8442464529095951155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5684992320374682133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e67ecb2b988ed04fa71d2f918ac402a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  health: 100
+--- !u!114 &-7633790769560953401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5684992320374682133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e1a9f829c73491c96ad3368dfba8214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniBossHealthbar: {fileID: 0}
+  miniBossName: Blocks of Minor Inconvience
+  miniBoss: {fileID: 0}

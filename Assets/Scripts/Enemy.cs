@@ -6,8 +6,10 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
-    public int maxHealth;
+    [SerializeField] public int maxHealth;
     [SerializeField] protected int health;
+    [SerializeField] public CameraShake cameraShake;
+
 
     public int Health
     {
@@ -15,20 +17,22 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         set => health = value;
     }
 
+    public int MaxHealth
+    {
+        get => maxHealth;
+        set => maxHealth = value;
+    }
+
     public virtual void TakeDamage(int damageAmount)
     {
         Debug.Log($"{name} took {damageAmount} damage.");
         Health -= damageAmount;
+        StartCoroutine(cameraShake.Shake(.15f, .14f));
         Debug.Log($"New Health: {Health}");
         if (Health <= 0)
         {
             Kill();
         }
-    }
-
-    private void Awake()
-    {
-        health = maxHealth;
     }
 
     public virtual void Kill()

@@ -1,43 +1,49 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class UIBossHealthbar : MonoBehaviour
+public class UIMiniBossHealthbar : MonoBehaviour
 {
-    public TextMeshProUGUI bossName;
+    public TextMeshProUGUI miniBossName;
     public Slider slider;
 
     private void Awake()
     {
         slider = GetComponentInChildren<Slider>();
-        bossName = GetComponentInChildren<TextMeshProUGUI>();
+        miniBossName = GetComponentInChildren<TextMeshProUGUI>();
+    }
+
+    private void Start()
+    {
+        SetHealthBarToInactive();
     }
 
     public void SetBossName(string name)
     {
-        bossName.text = name;
+        miniBossName.text = name;
     }
 
     public void SetUIHealthBarToActive()
     {
         slider.gameObject.SetActive(true);
-        bossName.enabled = true;
+        miniBossName.enabled = true;
     }
 
     public void SetHealthBarToInactive()
     {
         slider.gameObject.SetActive(false);
-        bossName.enabled = false;
+        miniBossName.enabled = false;
     }
 
     public void SetBossMaxHealth(int maxHealth)
     {
-        slider.maxValue = maxHealth;
-        slider.value = maxHealth;
+        slider.maxValue = maxHealth * 8;
+        slider.value = maxHealth * 8;
     }
 
     public void SetBossCurrentHealth(int currentHealth)
     {
-        slider.value = currentHealth;
+        slider.value = currentHealth * 8;
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-public class EnemyAI : Enemy
+public class EnemyAI : MonoBehaviour
 {
     public NavMeshAgent agent;
     public float range;
